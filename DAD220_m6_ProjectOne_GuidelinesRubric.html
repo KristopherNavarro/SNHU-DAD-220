@@ -1,0 +1,537 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Assignment Information</title>
+
+  <!-- HTML RUBRIC TEMPLATE -->
+
+  <!-- Bootstrap Grid -->
+  <link rel="stylesheet" href="/shared/custom_html/shared/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!--globalCampus.css containing typography standards -->
+  <link rel="stylesheet" href="/shared/HTML-Template-Library/GC Core Paced/module_templates/../assets/css/main.min.css">
+  <style>
+    h2 {
+      margin-bottom: 0;
+    }
+    p {
+      margin-top: 0;
+    }
+
+    #rubric-responsive table {
+      margin-left: auto;
+      margin-right: auto;
+      border-collapse: collapse;
+      max-width: 1080px;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    #rubric-responsive thead th:first-child {
+      width: 17%;
+    }
+    #rubric-responsive thead th:last-child {
+      width: 10%;
+    }
+
+    #rubric-responsive th,
+    #rubric-responsive td,
+    #rubric-responsive tbody > tr > :nth-child(1) {
+      border: 1px solid black;
+      padding: 7px;
+    }
+
+    #rubric-responsive th,
+    #rubric-responsive tbody > tr > :nth-child(1) {
+      background-color: #f5f5f5;
+    }
+
+#rubric-responsive th {text-align: center;
+                      }
+    #rubric-responsive td,
+    #rubric-responsive tbody > tr > :nth-child(1) {
+      vertical-align: text-top;
+    }
+
+    /* Center data in "Value" column */
+    #rubric-responsive tbody > tr > :last-child {
+      text-align: center;
+    }
+
+    /* Style first column like header row in case <th> isn't used */
+    #rubric-responsive tbody > tr > :nth-child(1) {
+      font-weight: bold;
+      text-align: center;
+    }
+
+/* right align total: text */
+      #rubric-responsive tbody > tr:last-child > :nth-child(1) {
+        font-weight: bold;
+        text-align: right;
+}
+
+    @media only screen and (max-width: 800px) {
+
+      /* Display table elements as block */
+      #rubric-responsive table,
+      #rubric-responsive thead,
+      #rubric-responsive tbody,
+      #rubric-responsive th,
+      #rubric-responsive td,
+      #rubric-responsive tr,
+      #rubric-responsive tfoot {
+        display: block;
+      }
+
+      #rubric-responsive caption {
+        display: inline-block;
+        margin: 0px auto;
+      }
+
+      /* Remove border from table and center it on screen */
+      #rubric-responsive table {
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+      }
+
+
+    /* Hide table headers (but not display: none; (for accessibility) */
+      #rubric-responsive thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      /* Style responsive table rows */
+      #rubric-responsive tr {
+        border: 1px solid #ccc;
+      }
+
+      /* Style responsive table cells */
+      #rubric-responsive td {
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      #rubric-responsive td:before {
+      /* Bring "data-title" attribute into table cells */
+        content: attr(data-attr);
+      /* display it as inline block so it doesn't interfere with <td> */
+        display: inline-block;
+      /* make it take up it's entire "row" */
+        width: 100%;
+      /* bold font so it looks like a th */
+        font-weight: bold;
+      }
+
+  /* Remove "data-title" attribute from first child <td> cells */
+  /* this removes "Criteria" from the Total row, and will remove criteria from any <td> cells that should be <th> */
+      #rubric-responsive tbody>tr>td:first-child:before {
+          content: none;
+      }
+
+      /* Center data in "Value" column */
+      #rubric-responsive tbody > tr > :last-child {
+        text-align: left;
+      }
+
+      /* Don't display "100%" cell */
+      #rubric-responsive tr:last-child td:last-of-type {
+        display: none;
+      }
+
+      /* Add "100%" after Total:  */
+      #rubric-responsive
+        tr:last-child
+        td:first-of-type::after {
+        content: " 100%";
+      }
+      /* remove padding from last row */
+      #rubric-responsive tr:last-child > td {
+        padding: 7px;
+      }
+    }
+
+    /* Print Styles*/
+    @media print {
+      @page {
+        size: landscape;
+      }
+
+      span.rsbtn_text {
+        display: none !important;
+      }
+
+      p,
+      ul,
+      ol,
+      li,
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr,
+      tfoot {
+        font-size: 12px;
+      }
+
+      h1,
+      h2 {
+        font-size: 90%;
+      }
+
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: 80%;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin-bottom: 5px;
+        margin-top: 0px;
+      }
+
+      ul,
+      ol {
+        margin-bottom: 5px;
+        margin-top: 0px;
+      }
+
+      .d-print-none {
+        display: none;
+      }
+
+      .d-print-block {
+        display: block;
+      }
+    }
+  </style> 
+     
+  <style>
+    img {
+      float: right;
+      margin-left: 20px;
+      width: 38vw;
+    }
+@media only screen and (max-width: 800px) {
+    img {
+      float:none;
+      align: center;
+      width:100vw;
+      display: block; 
+      margin-left: auto; 
+      margin-right: auto;
+    }
+  </style>
+  </head><body><h1>DAD 220 Project One Guidelines and Rubric</h1>
+<!--Begin copy to add more sections. Use appropriate heading tags for subsections-->
+<h2>Competencies</h2>
+<p>In this project, you will demonstrate your mastery of the following competencies:</p>
+<ul>
+<li>Create a structured database through the use of relational concepts</li>
+<li>Implement basic processing functionalities to create new structured database environments</li>
+</ul>
+<h2>Step One: Scenario</h2>
+<p>You’re working as a database administrator for Quantigration, a networking equipment manufacturer. The company has grown quickly, and it’s still figuring out its internal business processes. Customer return merchandise authorizations (RMAs) are used to track shipments for defective or incorrect parts. The company has identified RMAs as a specific problematic area.</p>
+<p>Your supervisor at Quantigration asked you to create a database for a new software application that will be used for processing RMAs. Because there are several locations where merchandise can be taken in, the application must also record where items are received. This system will also capture where the equipment is going next: repair, scrap, or refurbishing and resale. The warehouse shipping and receiving employees at your company will be using this application; they are considered your “end users” for the application. Part of their job is to process customer return shipments. This involves the following steps:</p>
+<ul>
+<li>Assess the quality of the items being returned for defects</li>
+<li>Identify missing parts</li>
+<li>Identify signs of obvious wear and tear (such as dents or scratches to the equipment)</li>
+</ul>
+<h2>Step One: Directions</h2>
+<p><strong>Create a Database<br></strong>The data architect on your DevOps team has come to you with a logical database diagram referred to as an entity relationship diagram (ERD). This is documentation of the tables, their relationships to each other, their attributes, and any primary or foreign keys on those attributes. These elements are required to create the new database.</p>
+<p>Prior to beginning, review the example ERD in the Quantigration RMA Diagram document in Supporting Materials.</p>
+<p>Create your three tables, named <strong>Customers</strong>, <strong>Orders</strong>, and <strong>RMA</strong>, in the <strong>QuantigrationUpdates</strong> database based on the example you‘ve been given. To do this, complete the following steps and place your work in the provided Database Documentation Template:</p>
+<ol>
+<li>Navigate to your online integrated development environment (IDE). The next set of steps will help you <strong>write SQL commands to create tables</strong> that demonstrate relationships based on the ERD<strong>.</strong></li>
+<li><strong>Create a database schema</strong> called QuantigrationUpdates that will hold tables by using SQL commands. List it out to the screen.</li>
+<li>Using the ERD as a reference, <strong>create the following tables with the appropriate attributes and keys:</strong><br>
+<ul>
+<li>A table to store customer information with a primary key of Customer ID</li>
+<li>A table to store order information with a primary key of Order ID and a foreign key of Customer ID</li>
+<li>A table to store RMA information with a primary key of RMA ID and a foreign key of Order ID</li>
+</ul>
+</li>
+</ol>
+<p><strong>STOP: </strong>Make sure to save your work before moving on to <strong>Step Two</strong> of this process. You’ll continue to work in Codio and use the documentation you started in<strong> </strong>Step One.</p>
+<h2>Step Two: Scenario</h2>
+<p>Now it’s time to populate the database with records and run some basic queries against those tables. You’ll be using the <strong>QuantigrationUpdates</strong> database and the three tables you created in<strong> Step One</strong> to do the following:</p>
+<ul>
+<li>Import data from the CSV data files into the tables</li>
+<li>Perform queries against those tables</li>
+<li>Create an output listing to the screen of the query results</li>
+</ul>
+<p>The shipping and receiving team that you are working with has been keeping records of their RMAs in spreadsheets, and your team has been creating its database in MySQL. The information that they have is detailed and won’t need cleaning. The data in the tables can be exported to CSV files. The data should also align with the columns and data types in your tables.</p>
+<h2>Step Two: Directions</h2>
+<p><strong>Load and Query the Data<br></strong>In Step One, you created a customer RMA database using SQL to create tables and placed your work in the database documentation template. To complete your objectives in this step, continue to place your work in the database documentation template and follow these directions:</p>
+<ul>
+<li>Please note before you begin that the three data files being used for this project are preloaded into Codio:</li>
+<ul>
+<li>RMA.csv</li>
+<li>Customers.csv</li>
+<li>Orders.csv</li>
+</ul>
+</ul>
+<ol>
+<li><strong>Import the data </strong>from each file<strong> into tables.</strong>
+<ul>
+<li>Use the QuantigrationUpdates database, the three tables you created, and the three CSV files preloaded into Codio.
+<ul>
+<li>Use the import utility of your database program to load the data from each file into the table of the same name. You’ll perform this step three times, once for each table.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Write basic queries</strong> against imported tables to organize and analyze targeted data. For each query, include a screenshot of the query and its output. You should also include a 1- to 3-sentence description of the output.
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Write an SQL query that returns the count of orders for customers located only in the city of Framingham, Massachusetts.
+<ul type="i">
+<li>This query will use a table <strong>join</strong> between the <strong>Customers</strong> and <strong>Orders</strong> tables. The query will also use a <strong>WHERE</strong> clause.</li>
+<li>How many records were returned?</li>
+</ul>
+</li>
+<li>Write an SQL query to select all of the customers located in the state of Massachusetts.
+<ul type="i">
+<li>Use a WHERE clause to limit the number of records in the customers table to only those who are located in Massachusetts.</li>
+<li>Record an answer to the following question: How many records were returned?</li>
+</ul>
+</li>
+<li>Write an SQL query to insert four new records into the orders and customers tables using the following data:</li>
+</ul>
+</li>
+<li style="list-style-type: none;">&nbsp;<strong>Customers Table</strong>
+<table border="1" style="border-collapse: collapse; width: 100%; height: 225px;"><colgroup><col style="width: 12.0755%;"><col style="width: 12.1698%;"><col style="width: 13.3019%;"><col style="width: 18.7736%;"><col style="width: 14.1509%;"><col style="width: 7.07547%;"><col style="width: 10.191%;"><col style="width: 12.2618%;"></colgroup>
+<tbody>
+<tr style="background-color: #efefef; style=height: 45px;">
+<td style="height: 45px;"><strong>CustomerID</strong></td>
+<td style="height: 45px;"><strong>FirstName</strong></td>
+<td style="height: 45px;"><strong>LastName</strong></td>
+<td style="height: 45px;"><strong>StreetAddress</strong></td>
+<td style="height: 45px;"><strong>City</strong></td>
+<td style="height: 45px;"><strong>State</strong></td>
+<td><strong>Zip Code</strong></td>
+<td style="height: 45px;"><strong>Telephone</strong></td>
+</tr>
+<tr style="height: 45px;">
+<td style="height: 45px;"><span xml:lang="EN" data-contrast="auto">100004</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+<td style="height: 45px;">Luke</td>
+<td style="height: 45px;">Skywalker</td>
+<td style="height: 45px;">17 Maiden Lane</td>
+<td style="height: 45px;">New York</td>
+<td style="height: 45px;">NY</td>
+<td>10222</td>
+<td style="height: 45px;"><span xml:lang="EN" data-contrast="auto">212-555-1234</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+</tr>
+<tr style="height: 45px;">
+<td style="height: 45px;"><span xml:lang="EN" data-contrast="auto">100005</span></td>
+<td style="height: 45px;">Winston</td>
+<td style="height: 45px;">Smith</td>
+<td style="height: 45px;"><span xml:lang="EN" data-contrast="auto">128 Sycamore Street</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+<td style="height: 45px;">Greensboro</td>
+<td style="height: 45px;">NC</td>
+<td>27401</td>
+<td style="height: 45px;"><span xml:lang="EN" data-contrast="auto">919-555-6623</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+</tr>
+<tr style="height: 45px;">
+<td style="height: 45px;"><span xml:lang="EN" data-contrast="auto">100006</span></td>
+<td style="height: 45px;">MaryAnne</td>
+<td style="height: 45px;">Jenkins</td>
+<td style="height: 45px;">2 Coconut Way</td>
+<td style="height: 45px;">Jupiter</td>
+<td style="height: 45px;">FL</td>
+<td>33458</td>
+<td style="height: 45px;"><span xml:lang="EN" data-contrast="auto">321-555-8907</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+</tr>
+<tr style="height: 45px;">
+<td style="height: 45px;"><span xml:lang="EN" data-contrast="auto">100007</span></td>
+<td style="height: 45px;">Janet</td>
+<td style="height: 45px;">Williams</td>
+<td style="height: 45px;">58 Redondo Beach Blvd</td>
+<td style="height: 45px;">Torrence</td>
+<td style="height: 45px;">CA</td>
+<td>90501</td>
+<td style="height: 45px;"><span xml:lang="EN" data-contrast="auto">310-555-5678</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+</tr>
+</tbody>
+</table>
+<strong></strong></li>
+<li style="list-style-type: none;"><strong></strong></li>
+<li style="list-style-type: none;"><strong>Orders Table</strong>
+<table border="1" style="border-collapse: collapse; width: 100%;"><colgroup><col style="width: 12.0755%;"><col style="width: 12.2642%;"><col style="width: 17.9554%;"><col style="width: 57.705%;"></colgroup>
+<tbody>
+<tr style="background-color: #efefef;">
+<td><strong>OrderID</strong></td>
+<td><strong>CustomerID</strong></td>
+<td><strong>SKU</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td><span xml:lang="EN" data-contrast="auto">1204305</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+<td><span style="list-style-type: disc;" xml:lang="EN" data-contrast="auto">100004</span></td>
+<td><span xml:lang="EN" data-contrast="auto">ADV-24-10C</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+<td><span xml:lang="EN" data-contrast="auto">Advanced Switch 10GigE Copper 24 port</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+</tr>
+<tr>
+<td><span style="list-style-type: disc;" xml:lang="EN" data-contrast="auto">1204306</span></td>
+<td><span style="list-style-type: disc;" xml:lang="EN" data-contrast="auto">100005</span></td>
+<td><span xml:lang="EN" data-contrast="auto">ADV-48-10F</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+<td><span xml:lang="EN" data-contrast="auto">Advanced Switch 10 GigE Copper/Fiber 44 port copper 4 port fiber</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+</tr>
+<tr>
+<td><span style="list-style-type: disc;" xml:lang="EN" data-contrast="auto">1204307</span></td>
+<td><span style="list-style-type: disc;" xml:lang="EN" data-contrast="auto">100006</span></td>
+<td><span xml:lang="EN" data-contrast="auto">ENT-24-10F</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+<td><span xml:lang="EN" data-contrast="auto">Enterprise Switch 10GigE SFP+ 24 Port</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+</tr>
+<tr>
+<td><span style="list-style-type: disc;" xml:lang="EN" data-contrast="auto">1204308</span></td>
+<td><span style="list-style-type: disc;" xml:lang="EN" data-contrast="auto">100007</span></td>
+<td><span xml:lang="EN" data-contrast="auto">ENT-48-10F</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+<td><span xml:lang="EN" data-contrast="auto">Enterprise Switch 10GigE SFP+ 48 port</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:0,&quot;335559740&quot;:240}">&nbsp;</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li style="list-style-type: none;"></li>
+<li>In the Customers table, perform a query to count all records where the city is Woonsocket, Rhode Island.
+<ul>
+<li>How many records are in the customers table where the field "city" equals "Woonsocket"?</li>
+</ul>
+</li>
+<li>In the RMA database, update a customer's records.
+<ol type="a">
+<li>Write an SQL statement to select the current fields of&nbsp;<strong>status</strong> and <strong>step </strong>for the record in the RMA table with an <strong>OrderID </strong>value of "5175."
+<ol type="i">
+<li>What are the current status and step?</li>
+<li>Write an SQL statement to update the status and step for the <strong>OrderID</strong>, 5175 to <strong>status </strong>= "Complete" and <strong>step </strong>= "Credit Customer Account."
+<ol type="a">
+<li>What are the updated status and step values for this record? Provide a screenshot of your work.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>&nbsp;Delete RMA records.
+<ul>
+<li>Write an SQL statement to delete all records with a reason of "Rejected".
+<ul>
+<li>How many records were deleted? Provide a screenshot of your work.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Because of a new company branding initiative, you’ve been asked to change the name of the “Customer” to “Collaborator.” <strong>Update your existing table using SQL</strong> based on this change in requirements. Copy and paste the SQL you write to do the following:
+<ol type="a">
+<li>Rename all instances of “Customer” to “Collaborator.”</li>
+</ol>
+</li>
+<li><strong>Create an output file </strong>of the required query results<strong>. </strong>Write an SQL statement to list the contents of the <strong>Orders</strong> table and send the output to a file that has a .csv extension.</li>
+</ol>
+<!--End copy to add section->
+<!--Do NOT change text for "What to Submit" heading-->
+<h2>What to Submit</h2>
+<p>To complete this project, you must submit the following:</p>
+<p><strong>Database Documentation<br></strong>Complete and submit the <span style="text-decoration: underline;"><a href="course_documents/DAD%20220%20Database%20Documentation%20Template.docx?_&amp;d2lSessionVal=Skcp2nRy8FlgzEDRT5usyk4q1&amp;ou=1332080" target="_blank" rel="noopener">Database Documentation Template</a></span>. This will be where you capture the work that you’ve done in both Step One and Step Two. Follow the specific instructions for the directions outlined here and within the template itself.</p>
+<h2>Supporting Materials</h2>
+<p>The CSV data files that you’ll be working with can be found in Codio. They are listed vertically in the left pane of your Codio web interface. The following resource(s) may support your work on the project:</p>
+<p><strong>Document:</strong> <span style="text-decoration: underline;"><a href="course_documents/DAD%20220%20Database%20Documentation%20Template%20Example.pdf?_&amp;d2lSessionVal=Skcp2nRy8FlgzEDRT5usyk4q1&amp;ou=1332080" target="_blank" rel="noopener">Database Documentation Template Example</a></span><br>As you complete your database documentation template, refer to this document for an example of how to insert screenshots to capture your work.</p>
+<p><strong>Document:</strong> <span style="text-decoration: underline;"><a href="course_documents/DAD%20220%20Quantigration%20RMA%20Diagram.pdf?_&amp;d2lSessionVal=Skcp2nRy8FlgzEDRT5usyk4q1&amp;ou=1332080" target="_blank" rel="noopener">Quantigration RMA Diagram</a></span><br>This ERD shows the relationships of entities in the database. Download this ERD and use it to support your work on this project. A text version of the diagram is available: <span style="text-decoration: underline;"><a href="course_documents/DAD%20220%20Quantigration%20RMA%20ERD%20Text%20Version.docx?_&amp;d2lSessionVal=Skcp2nRy8FlgzEDRT5usyk4q1&amp;ou=1332080" target="_blank" rel="noopener">Quantigration RMA Diagram Text Version</a></span>.</p>
+<h2 style="text-align: center;">Project One Rubric</h2>
+<div id="rubric-responsive">
+<table>
+<thead>
+<tr><!--Do NOT change text for "Criteria" column heading-->
+<th class="table-borderless" scope="col">Criteria</th>
+<th scope="col">Exemplary</th>
+<th scope="col">Proficient</th>
+<th scope="col">Needs Improvement</th>
+<th scope="col">Not Evident</th>
+<!--Do NOT change text for "Value" column heading-->
+<th scope="col">Value</th>
+</tr>
+</thead>
+<tbody><!--Begin copy to add ROWS. Update "td data-attr=" to match table headings exactly before copying and pasting.-->
+<tr>
+<th scope="row">Write SQL Commands to Create Tables</th>
+<td data-attr="Exemplary">Exceeds proficiency in an exceptionally clear, insightful, sophisticated, or creative manner (100%)</td>
+<td data-attr="Proficient">Writes SQL commands to create tables that demonstrate relationships based on the ERD (85%)</td>
+<td data-attr="Needs Improvement">Shows progress toward proficiency, but with errors or omissions; areas for improvement may include inaccuracies in the SQL and tables (55%)</td>
+<td data-attr="Not Evident">Does not attempt criterion (0%)</td>
+<td data-attr="Value">25</td>
+</tr>
+<tr>
+<th scope="row">Create a Database Schema</th>
+<td data-attr="Exemplary" style="background-color: #efefef;">N/A</td>
+<td data-attr="Proficient">Creates schema that will hold tables by using SQL commands (100%)</td>
+<td data-attr="Needs Improvement">Shows progress toward proficiency, but with errors or omissions; areas for improvement may include schema that do not hold tables (55%)</td>
+<td data-attr="Not Evident">Does not attempt criterion (0%)</td>
+<td data-attr="Value">10</td>
+</tr>
+<tr>
+<th scope="row">Update Existing Table Using SQL</th>
+<td data-attr="Exemplary" style="background-color: #efefef;">N/A</td>
+<td data-attr="Proficient">Updates existing table using SQL based on change in requirements (100%)</td>
+<td data-attr="Needs Improvement">Shows progress toward proficiency, but with errors or omissions; areas for improvement may include addition of incorrect data in updates (55%)</td>
+<td data-attr="Not Evident">Does not attempt criterion (0%)</td>
+<td data-attr="Value">15</td>
+</tr>
+<tr>
+<th scope="row">Import Data Into Tables</th>
+<td data-attr="Exemplary">Exceeds proficiency in an exceptionally clear, insightful, sophisticated, or creative manner (100%)</td>
+<td data-attr="Proficient">Imports new data into tables and modifies existing records in tables (85%)</td>
+<td data-attr="Needs Improvement">Shows progress toward proficiency, but with errors or omissions; areas for improvement may include additional detail in importing and modifying data (55%)</td>
+<td data-attr="Not Evident">Does not attempt criterion (0%)</td>
+<td data-attr="Value">10</td>
+</tr>
+<tr>
+<th scope="row">Write Basic Queries</th>
+<td data-attr="Exemplary">Exceeds proficiency in an exceptionally clear, insightful, sophisticated, or creative manner (100%)</td>
+<td data-attr="Proficient">Writes basic queries against imported tables to organize and analyze targeted data (85%)</td>
+<td data-attr="Needs Improvement">Shows progress toward proficiency, but with errors or omissions; areas for improvement may include level of detail of queries (55%)</td>
+<td data-attr="Not Evident">Does not attempt criterion (0%)</td>
+<td data-attr="Value">20</td>
+</tr>
+<tr>
+<th scope="row">Create Output File</th>
+<td data-attr="Exemplary" style="background-color: #efefef;">N/A</td>
+<td data-attr="Proficient">Creates an output file of the required query results (100%)</td>
+<td data-attr="Needs Improvement">Shows progress toward proficiency, but with errors or omissions; areas for improvement may include inaccuracies in the output file of query results (55%)</td>
+<td data-attr="Not Evident">Does not attempt criterion (0%)</td>
+<td data-attr="Value">10</td>
+</tr>
+<tr>
+<th scope="row">Articulation of Response (Descriptions Only)</th>
+<td data-attr="Exemplary">Exceeds proficiency in an exceptionally clear, insightful, sophisticated, or creative manner (100%)</td>
+<td data-attr="Proficient">Clearly conveys meaning with correct grammar, sentence structure, and spelling, demonstrating an understanding of audience and purpose (85%)</td>
+<td data-attr="Needs Improvement">Shows progress toward proficiency, but with errors in grammar, sentence structure, and spelling, negatively impacting readability (55%)</td>
+<td data-attr="Not Evident">Submission has critical errors in grammar, sentence structure, and spelling, preventing understanding of ideas (0%)</td>
+<td data-attr="Value">10</td>
+</tr>
+<!--End copy to add ROWS--> <!--Paste additional ROWS here.-->
+<tr><!--Update "colspan" if columns are removed. Number should equal 1 less than total number of columns.-->
+<td colspan="5" style="text-align: right;">Total:</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+</div></body></html>
