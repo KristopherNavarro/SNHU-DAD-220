@@ -54,18 +54,40 @@
     --  1.  Importing Data
         --  a.  customers.CSV
             LOAD DATA INFILE '/home/codio/workspace/customers.csv'
-        INTO TABLE Customers
-        FIELDS TERMINATED BY ','
-        LINES TERMINATED BY '\n';
+        		INTO TABLE Customers
+        		FIELDS TERMINATED BY ','
+        		LINES TERMINATED BY '\n';
         --  b.  orders.CSV
             LOAD DATA INFILE '/home/codio/workspace/orders.csv'
-        INTO TABLE Orders
-        FIELDS TERMINATED BY ','
-        LINES TERMINATED BY '\n';
+        		INTO TABLE Orders
+        		FIELDS TERMINATED BY ','
+        		LINES TERMINATED BY '\n';
         --  c.  rma.CSV
             LOAD DATA INFILE '/home/codio/workspace/rma.csv'
-        INTO TABLE RMA
-        FIELDS TERMINATED BY ','
-        LINES TERMINATED BY '\n';
+        		INTO TABLE RMA
+        		FIELDS TERMINATED BY ','
+        		LINES TERMINATED BY '\n';
 
     --  2.  Queries
+		--  a.	Write an SQL query that returns the count of orders for customers located only in the city of Framingham, Massachusetts.
+			SELECT COUNT(*) AS customers_from_Framingham
+			FROM Customers AS c
+			INNER JOIN Orders AS o
+				ON c.CustomerID = o.CustomerID
+			WHERE c.City = 'Framingham' AND c.State = 'MA';
+
+		--	b.	Write an SQL query to select all of the customers located in the state of Massachusetts.
+			SELECT * 
+			FROM Customers
+			WHERE State = 'Massachusetts';
+
+		--	c.	Write an SQL query to insert four new records into the orders and customers tables using the following data:
+		--	i. 	Insert into Customers
+			INSERT INTO Customers(CustomerID, FirstName, LastName, Street, City, State, ZipCode, Telephone)
+			VALUES
+				(100004, 'Luke', 'Skywalker', '17 Maiden Lane', 'New York', 'NY', '10222','212-555-1234'),
+				(100005, 'Winston','Smith','128 Sycamore Street','Greensboro','NC','27401','919-555-6623'),
+				(100006, 'MaryAnne','Jenkins','2 Coconut Way','Jupiter','FL','33458','321-555-8907'),
+				(100007, 'Janet','Williams','58 Redondo Beach BLVD','Torrence','CA','90501','310-555-5678');
+
+		--	2. 	Insert into Orders 
