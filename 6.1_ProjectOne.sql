@@ -1,3 +1,5 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 --  STEP 1  --
 --      1. (navigate to Codio)
 --      2. Create 'QuantigrationUpdates' database
@@ -69,23 +71,8 @@
             LINES TERMINATED BY '\n';
 
     --  2.  Queries
-        	INTO TABLE Customers
-        	FIELDS TERMINATED BY ','
-        	LINES TERMINATED BY '\n';
-        --  b.  orders.CSV
-            LOAD DATA INFILE '/home/codio/workspace/orders.csv'
-        	INTO TABLE Orders
-        	FIELDS TERMINATED BY ','
-        	LINES TERMINATED BY '\n';
-        --  c.  rma.CSV
-            LOAD DATA INFILE '/home/codio/workspace/rma.csv'
-        	INTO TABLE RMA
-        	FIELDS TERMINATED BY ','
-        	LINES TERMINATED BY '\n';
-
-    --  2.  Queries
 		--  a.	Write an SQL query that returns the count of orders for customers located only in the city of 
-		--	Framingham, Massachusetts.
+		--	    Framingham, Massachusetts.
 			SELECT COUNT(*) AS customers_from_Framingham
 			FROM Customers AS c
 			INNER JOIN Orders AS o
@@ -97,9 +84,9 @@
 			FROM Customers
 			WHERE State = 'Massachusetts';
 
-		--	c.	Write an SQL query to insert four new records into the orders and customers tables using 
-		--	the following data:
-			--	i. 	Insert into Customers
+		--	c.  Write an SQL query to insert four new records into the orders and customers tables using
+		--	    the following data:
+			--	i. 	    Insert into Customers
 			    INSERT INTO Customers(CustomerID, FirstName, LastName, Street, City, State, ZipCode, Telephone)
 			    VALUES
 				    (100004, 'Luke', 'Skywalker', '17 Maiden Lane', 'New York', 'NY', '10222','212-555-1234'),
@@ -107,7 +94,7 @@
 				    (100006, 'MaryAnne','Jenkins','2 Coconut Way','Jupiter','FL','33458','321-555-8907'),
 				    (100007, 'Janet','Williams','58 Redondo Beach BLVD','Torrence','CA','90501','310-555-5678');
 
-			--	ii. 	Insert into Orders 
+			--	ii.     Insert into Orders
 			    INSERT INTO Orders(OrderID, CustomerID, Sku, Description)
 			    VALUES
 				    (1204305, 100004, 'ADV-24-10C','Advanced Switch 10GigE Copper 24 port'),
@@ -115,22 +102,62 @@
 				    (1204307, 100006, 'ENT-24-10F', 'Enterprise Switch 10GigE SFP+ 24 Port'),
 				    (1204308, 100007, 'ENT-48-10F', 'Enterprise Switch 10GigE SFP+ 48 port');
 
-			--	iii.	In the Customers table, perform a query to count all records where the city is 
-			--	Woonsocket, Rhode Island.
+			--	iii.    In the Customers table, perform a query to count all records where the city is
+			--	        Woonsocket, Rhode Island.
 			    SELECT COUNT(*)
 			    FROM Customers
 			    WHERE City = 'Woonsocket'
 				    AND State = 'Rhode Island'
 
-			--	iv.	In the RMA database, update a customer's records.
-			-- 	Write an SQL statement to select the current fields of status and step for the record in the 
-			--	RMA table with an OrderID value of "5175."
-				-- 	i. What are the current status and step?
-				-- 	ii. Write an SQL statement to update the status and step for the OrderID, 5175 to 
-				--	status = "Complete" and step = "Credit Customer Account."
-					-- 	a. What are the updated status and step values for this record? Provide a 
-					--	screenshot of your work.
+			--	iv. In the RMA database, update a customer's records.
+			-- 	    a.  Write an SQL statement to select the current fields of status and step for the record in the
+			--	        RMA table with an OrderID value of "5175."
+                    SELECT OrderID, Status, Step
+                    FROM RMA
+                    WHERE OrderID = 5175;
+
+				    -- 	i.  What are the current status and step?
+
+				    -- 	ii. Write an SQL statement to update the status and step for the OrderID, 5175 to
+				    --	    status = "Complete" and step = "Credit Customer Account."
+                        UPDATE RMA
+                        SET Status = 'Complete',
+                            Step = 'Credit Customer Account.'
+                        WHERE OrderID = 5175;
+
+					-- 	iii.  What are the updated status and step values for this record? Provide a
+					--	    screenshot of your work.
 
 			--	v.	Delete RMA records.
-				--	a.	Write an SQL statement to delete all records with a reason of "Rejected".
-					--	i.	How many records were deleted? Provide a screenshot of your work.
+			--	    a.  Write an SQL statement to delete all records with a reason of "Rejected".
+                        SELECT COUNT(*)
+                        FROM RMA
+                        WHERE Reason = 'Rejected';
+
+                        DELETE FROM RMA
+                        WHERE Reason = 'Rejected';
+
+                        -- Test this out:
+                            DO $$
+                            BEGIN
+                                DECLARE rows_affected INT;
+                                DELETE FROM RMA WHERE Reason = 'Rejected';
+                                GET DIAGNOSTICS rows_affected = ROW_COUNT;
+                                SELECT rows_affected AS deleted_rows;
+                            END $$;
+			        --	i.  How many records were deleted? Provide a screenshot of your work.
+                        SELECT ROW_COUNT();
+
+    --  3.  Because of a new company branding initiative, you’ve been asked to change the name of the “Customer” to
+    --      “Collaborator.” Update your existing table using SQL based on this change in requirements. Copy and paste
+    --      the SQL you write to do the following:
+        --  a.  Rename all instances of “Customer” to “Collaborator.”
+            RENAME TABLE Customer to Collaborator;
+
+    --  4.  Create an output file of the required query results. Write an SQL statement to list the contents of the
+    --      Orders table and send the output to a file that has a .csv extension.
+        SELECT *
+        INTO OUTFILE '/home/codio/workspace/m6_orders_Navarro.csv'
+        FIELDS TERMINATED BY ','
+        LINES TERMINATED BY '\n'
+        FROM Orders;
