@@ -1,3 +1,5 @@
+# noinspection SqlNoDataSourceInspectionForFile
+
 --
 USE QuantigrationRMA;
 
@@ -14,7 +16,8 @@ GROUP BY c.State
 ORDER BY c.State;
 
 -- -- -- this query exposed a data cleaning issue, there are a few states listed as their abbreviations
-UPDATE Customers SET State = CASE
+UPDATE Customers
+SET State = CASE
     WHEN State = 'CA' THEN 'California'
     WHEN State = 'FL' THEN 'Florida'
     WHEN State = 'NC' THEN 'North Carolina'
