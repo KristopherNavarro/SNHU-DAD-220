@@ -20,3 +20,40 @@
 	-- What are the potential flaws in the data that has been presented?
 	-- Are there any limitations on your conclusions, or any other ways of looking at it that you haven’t considered? 
 		-- Clearly communicate your findings to stakeholders.
+
+USE QuantigrationUpdates;
+
+--	First, fix RMA.Status
+--	Create backup Customers table, populated with data from Customers.csv
+CREATE TABLE RMABackup (
+	RmaID	INT UNSIGNED PRIMARY KEY,
+	OrderID	INT	UNSIGNED,
+	Step		VARCHAR(50),
+	Status	VARCHAR(15),
+	Reason	VARCHAR(15)
+	);
+
+
+LOAD DATA INFILE '/home/codio/workspace/rma.csv'
+INTO TABLE RMABackup
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n';
+
+
+UPDATE RMA
+INNER JOIN RMABackup
+	ON RMA.RmaID = RMABackup.RmaID
+SET RMA.Status = RMABackup.Status;
+
+
+SELECT 
+	COUNT(Col.State),
+	Col.State,
+	RMA.Status
+FROM Collaborators AS Col
+INNER JOIN Orders AS Ord
+	ON Col.CustomerID = Ord.CustomerID
+		INNER JOIN RMA
+			ON Ord.OrderID = RMA.OrderID
+WHERE RMA.Status = 'Rejected'
+ORDER BY Col.State DESC;
