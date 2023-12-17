@@ -1,2 +1,6 @@
-# SNHU-DAD-220
- SNHU class DAD-220-H7558 Intro to Struct Database Env 23EW5
+
+
+# Welcome to my DAD-220 repository!
+ 
+###    Introduction to Structured Database Environments
+###    DAD-220-H7642
