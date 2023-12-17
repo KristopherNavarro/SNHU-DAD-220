@@ -26,8 +26,8 @@ USE QuantigrationUpdates;
 --	First, fix RMA.Status
 --	Create backup Customers table, populated with data from Customers.csv
 CREATE TABLE RMABackup (
-	RmaID	INT UNSIGNED PRIMARY KEY,
-	OrderID	INT	UNSIGNED,
+	RmaID	INT UNSIGNED	 PRIMARY KEY,
+	OrderID	INT UNSIGNED,
 	Step		VARCHAR(50),
 	Status	VARCHAR(15),
 	Reason	VARCHAR(15)
@@ -45,15 +45,25 @@ INNER JOIN RMABackup
 	ON RMA.RmaID = RMABackup.RmaID
 SET RMA.Status = RMABackup.Status;
 
+SELECT DISTINCT(Reason) 
+FROM RMABackup;
+
+UPDATE RMABackup
+SET Reason = 'Other'
+WHERE Reason LIKE '%ther%';
 
 SELECT 
-	COUNT(Col.State),
 	Col.State,
-	RMA.Status
+	COUNT(RMABackup.Reason) AS RMA_Reason_Counts,
+	RMABackup.Reason,
+	COUNT(Ord.OrderID) AS Total_Orders
 FROM Collaborators AS Col
 INNER JOIN Orders AS Ord
 	ON Col.CustomerID = Ord.CustomerID
-		INNER JOIN RMA
-			ON Ord.OrderID = RMA.OrderID
-WHERE RMA.Status = 'Rejected'
-ORDER BY Col.State DESC;
+	INNER JOIN RMABackup
+	ON Ord.OrderID = RMABackup.OrderID
+GROUP BY Col.State, RMABackup.Reason
+ORDER BY Col.State, RMABackup.Reason;
+-- I don't think the previous statement provided the results I wanted. 
+
+SELECT 
