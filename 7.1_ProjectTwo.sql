@@ -97,22 +97,15 @@ ORDER BY RMA_Totals DESC;
 
 
 --  2. Analyze the percentage of returns by product type
-SELECT
-    Ord.Sku,
-    COUNT(RMA.*)
-    ((SELECT COUNT(RMA.OrderID)
-      FROM Collaborators AS Col3
-               INNER JOIN Orders AS Ord3
-                          ON Col.CustomerID = Ord.CustomerID
-               INNER JOIN RMA
-                           ON Ord.OrderID = RMA.OrderID
-      WHERE Col3.State = Col.State AND RMA3.Reason <> 'Rejected') / (SELECT COUNT(RMA.RmaID FROM RMA))
-FROM Orders AS Ord
-    INNER JOIN RMA
-        ON Ord.OrderID = RMA.OrderID
-GROUP BY Ord.Sku;
-
-
+SELECT 
+	Orders.Sku,
+	COUNT(RMA.RmaID) AS RMAs_per_SKU,
+	(COUNT(RMA.RmaID) / (SELECT COUNT(*) FROM RMA)) AS Perc_of_RMAs
+FROM Orders
+INNER JOIN RMA
+ON Orders.OrderID = RMA.OrderID
+GROUP BY Orders.Sku
+ORDER BY Perc_of_RMAs DESC;	
 
 -- ----------------------------------------------------------------
 -- Misc. query
@@ -153,3 +146,7 @@ FROM Collaborators AS Col
                     ON Col.CustomerID = Ord.CustomerID
 GROUP BY Col.State
 ORDER BY Order_Counts DESC;
+
+SELECT Sku, COUNT(Sku)
+FROM Orders
+GROUP BY Sku;
