@@ -107,8 +107,10 @@ ON Orders.OrderID = RMA.OrderID
 GROUP BY Orders.Sku
 ORDER BY Perc_of_RMAs DESC;	
 
+
 -- ----------------------------------------------------------------
--- Misc. query
+-- ----------------------------------------------------------------
+-- Miscellaneous queries
 -- This query did not produce the results I expected, the resulting table was not easily readable.
 SELECT
 	Col.State,
@@ -146,7 +148,3 @@ FROM Collaborators AS Col
                     ON Col.CustomerID = Ord.CustomerID
 GROUP BY Col.State
 ORDER BY Order_Counts DESC;
-
-SELECT Sku, COUNT(Sku)
-FROM Orders
-GROUP BY Sku;
